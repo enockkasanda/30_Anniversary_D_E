@@ -1,0 +1,957 @@
+
+/* =========================================
+   1. COLOURS AND GLOBAL SETTINGS
+========================================= */
+
+:root {
+    --ivory: #f8f5ed;
+    --ivory-dark: #eee5d4;
+    --gold: #a77b35;
+    --gold-light: #d6bb83;
+    --black: #171613;
+    --grey: #706b62;
+    --white: #fffdf8;
+    --border: #dfd3bb;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    background: var(--ivory);
+    color: var(--black);
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+    background: var(--gold-light);
+    color: var(--black);
+}
+
+
+/* =========================================
+   2. SHARED TYPOGRAPHY
+========================================= */
+
+h1,
+h2,
+h3,
+.monogram,
+.seal-number,
+.footer-names {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 400;
+}
+
+h1,
+h2 {
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+}
+
+h1 {
+    font-size: clamp(3.5rem, 6.5vw, 6.5rem);
+}
+
+h1 span,
+h2 span {
+    display: block;
+    color: var(--gold);
+    font-style: italic;
+}
+
+h2 {
+    font-size: clamp(2.5rem, 4.5vw, 4.4rem);
+}
+
+h3 {
+    font-size: 2rem;
+    line-height: 1.2;
+}
+
+.eyebrow {
+    color: var(--gold);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    line-height: 1.7;
+}
+
+.section-padding {
+    padding: 120px 8%;
+}
+
+
+/* =========================================
+   3. NAVIGATION
+========================================= */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(248, 245, 237, 0.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+}
+
+.navbar {
+    min-height: 82px;
+    max-width: 1600px;
+    padding: 0 5%;
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.monogram {
+    font-size: 2.2rem;
+    letter-spacing: -0.08em;
+}
+
+.monogram span {
+    color: var(--gold);
+    font-size: 1.4rem;
+    font-style: italic;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+}
+
+.nav-links a {
+    font-size: 12px;
+    transition: color 0.25s ease;
+}
+
+.nav-links a:hover {
+    color: var(--gold);
+}
+
+.nav-rsvp {
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--gold);
+}
+
+.menu-toggle {
+    display: none;
+    border: 0;
+    background: none;
+    cursor: pointer;
+}
+
+
+/* =========================================
+   4. HERO SECTION
+========================================= */
+
+.hero {
+    min-height: 690px;
+    padding: 70px 8% 85px;
+
+    display: grid;
+    grid-template-columns: 1fr 0.9fr;
+    align-items: center;
+    gap: 8%;
+
+    max-width: 1600px;
+    margin: auto;
+}
+
+.hero-content {
+    max-width: 550px;
+}
+
+.hero-content .eyebrow {
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    margin-bottom: 24px;
+}
+
+.hero-description {
+    max-width: 390px;
+    margin-bottom: 28px;
+    color: var(--grey);
+    font-size: 14px;
+}
+
+.hero-date {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 28px;
+}
+
+.date-number {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 3rem;
+    line-height: 1;
+    color: var(--gold);
+}
+
+.date-details {
+    padding-left: 18px;
+    border-left: 1px solid var(--gold-light);
+
+    display: flex;
+    flex-direction: column;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+}
+
+.date-details span:last-child {
+    color: var(--grey);
+    font-size: 10px;
+}
+
+.button {
+    min-height: 54px;
+    padding: 15px 24px;
+
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+
+    border: 1px solid var(--black);
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.button-dark {
+    background: var(--black);
+    color: var(--white);
+}
+
+.button-dark:hover {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.discover-link {
+    display: block;
+    margin-top: 52px;
+    color: var(--grey);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+}
+
+.hero-visual {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    justify-self: center;
+    padding-bottom: 30px;
+}
+
+.hero-photo-frame {
+    position: relative;
+    height: 550px;
+    padding: 10px;
+    border: 1px solid var(--gold-light);
+    border-radius: 200px 200px 16px 16px;
+}
+
+.hero-photo-frame img {
+    border-radius: 190px 190px 8px 8px;
+    background: var(--ivory-dark);
+}
+
+.photo-caption {
+    position: absolute;
+    bottom: 25px;
+    left: 11px;
+    right: 11px;
+    padding: 18px 8px;
+
+    background: rgba(23, 22, 19, 0.65);
+    color: white;
+
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.45rem;
+    font-style: italic;
+    text-align: center;
+}
+
+.anniversary-seal {
+    position: absolute;
+    right: -28px;
+    bottom: 0;
+
+    width: 155px;
+    height: 155px;
+    border: 1px solid var(--gold);
+    outline: 5px solid var(--ivory);
+    border-radius: 50%;
+    background: var(--ivory);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    color: var(--gold);
+    line-height: 1.1;
+}
+
+.seal-top,
+.seal-bottom {
+    font-size: 7px;
+    letter-spacing: 0.12em;
+}
+
+.seal-number {
+    font-size: 4.5rem;
+    line-height: 0.95;
+}
+
+.seal-years {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.4rem;
+}
+
+
+/* =========================================
+   5. CELEBRATION DETAILS
+========================================= */
+
+.celebration {
+    border-top: 1px solid var(--border);
+}
+
+.section-heading {
+    max-width: 850px;
+    margin: 0 auto 65px;
+    text-align: center;
+}
+
+.section-heading .eyebrow {
+    margin-bottom: 20px;
+}
+
+.section-heading h2 {
+    margin-bottom: 22px;
+}
+
+.section-heading > p:last-child {
+    color: var(--grey);
+}
+
+.details-grid {
+    max-width: 900px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.detail-card {
+    padding: 25px 35px;
+    text-align: center;
+}
+
+.detail-card + .detail-card {
+    border-left: 1px solid var(--border);
+}
+
+.detail-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 35px;
+    height: 35px;
+    margin-bottom: 25px;
+
+    border: 1px solid var(--gold-light);
+    border-radius: 50%;
+    color: var(--gold);
+    font-size: 10px;
+}
+
+.detail-card .eyebrow {
+    margin-bottom: 10px;
+}
+
+.detail-card h3 {
+    margin-bottom: 10px;
+}
+
+.detail-card > p:not(.eyebrow) {
+    color: var(--grey);
+}
+
+.text-link {
+    display: inline-block;
+    margin-top: 20px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--gold);
+}
+
+
+/* =========================================
+   6. ANNIVERSARY STORY
+========================================= */
+
+.story {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 400px;
+}
+
+.story-image {
+    min-height: 400px;
+    overflow: hidden;
+    
+}
+
+.story-image img {
+    transition: transform 0.7s ease;
+}
+
+.story-image:hover img {
+    transform: scale(1.03);
+}
+
+.story-content {
+    padding: 75px 12%;
+    background: var(--black);
+    color: var(--ivory);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.story-content .eyebrow {
+    margin-bottom: 30px;
+}
+
+.story-content h2 {
+    margin-bottom: 28px;
+    font-size: clamp(2.8rem, 4vw, 4.2rem);
+}
+
+.story-content h2 span {
+    color: var(--gold-light);
+}
+
+.story-content > p:not(.eyebrow) {
+    margin-bottom: 18px;
+    color: #d2cdc2;
+}
+
+.story-date {
+    margin-top: 18px;
+    color: var(--gold-light) !important;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+}
+
+
+/* =========================================
+   7. DRESS CODE
+========================================= */
+
+.attire {
+    background: var(--ivory);
+}
+
+.colour-palette {
+    display: flex;
+    justify-content: center;
+    gap: 42px;
+    margin-bottom: 30px;
+}
+
+.colour-item {
+    width: 95px;
+    text-align: center;
+}
+
+.colour-swatch {
+    display: block;
+    width: 76px;
+    height: 105px;
+    margin: auto auto 14px;
+
+    border: 1px solid var(--border);
+    border-radius: 50px 50px 8px 8px;
+}
+
+.colour-black {
+    background: #171613;
+}
+
+.colour-white {
+    background: #fffdf8;
+}
+
+.colour-gold {
+    background: #b99a5e;
+}
+
+.colour-item p {
+    font-size: 11px;
+}
+
+.attire-note {
+    text-align: center;
+    color: var(--grey);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+}
+
+
+/* =========================================
+   8. RSVP SECTION
+========================================= */
+
+.rsvp-section {
+    background:
+        linear-gradient(
+            180deg,
+            #f1eee4 0%,
+            #f8f5ed 100%
+        );
+}
+
+.rsvp-form {
+    width: 100%;
+    max-width: 560px;
+    margin: auto;
+    padding: 45px 38px;
+
+    background: var(--white);
+    border: 1px solid var(--border);
+}
+
+.rsvp-form h3 {
+    margin-bottom: 8px;
+}
+
+.form-intro {
+    margin-bottom: 30px;
+    color: var(--grey);
+    font-size: 12px;
+}
+
+.rsvp-form > label,
+.attendance-options legend {
+    display: block;
+    margin: 22px 0 9px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.rsvp-form input[type="text"],
+.rsvp-form select,
+.rsvp-form textarea {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #d6d0c4;
+    border-radius: 0;
+    background: white;
+    color: var(--black);
+    outline: none;
+}
+
+.rsvp-form input:focus,
+.rsvp-form select:focus,
+.rsvp-form textarea:focus {
+    border-color: var(--gold);
+}
+
+.rsvp-form textarea {
+    resize: vertical;
+}
+
+.attendance-options {
+    border: 0;
+}
+
+.attendance-options legend {
+    margin-top: 22px;
+}
+
+.radio-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin-bottom: 10px;
+    padding: 15px;
+
+    border: 1px solid #d6d0c4;
+    cursor: pointer;
+}
+
+.radio-option input {
+    accent-color: var(--gold);
+}
+
+.submit-button {
+    width: 100%;
+    margin-top: 25px;
+}
+
+.form-status {
+    margin-top: 16px;
+    font-size: 12px;
+}
+
+.privacy-note {
+    margin-top: 20px;
+    color: var(--grey);
+    font-size: 10px;
+    line-height: 1.8;
+}
+
+
+/* =========================================
+   9. GIFT INFORMATION
+========================================= */
+
+.gifts {
+    text-align: center;
+    background: #f0e8d9;
+}
+
+.gift-content {
+    max-width: 650px;
+    margin: auto;
+}
+
+.gift-content .eyebrow {
+    margin-bottom: 20px;
+}
+
+.gift-content h2 {
+    margin-bottom: 25px;
+}
+
+.gift-content > p:not(.eyebrow) {
+    color: var(--grey);
+}
+
+.bank-details {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 20px 45px;
+
+    border: 1px solid var(--gold);
+}
+
+.bank-details span {
+    color: var(--gold);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+}
+
+.bank-details p {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 2rem;
+}
+
+
+/* =========================================
+   10. FOOTER
+========================================= */
+
+.site-footer {
+    padding: 65px 20px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+}
+
+.footer-heart {
+    margin-bottom: 10px;
+    color: var(--gold);
+    font-size: 1.8rem;
+}
+
+.footer-names {
+    margin-bottom: 10px;
+    font-size: 2.6rem;
+    font-style: italic;
+}
+
+.site-footer .eyebrow {
+    margin-bottom: 15px;
+}
+
+.footer-message {
+    color: var(--grey);
+    font-size: 11px;
+}
+
+
+/* =========================================
+   11. TABLET RESPONSIVENESS
+========================================= */
+
+@media (max-width: 1000px) {
+
+    .hero {
+        padding: 60px 6%;
+        gap: 5%;
+    }
+
+    .hero-photo-frame {
+        height: 460px;
+    }
+
+    .anniversary-seal {
+        width: 125px;
+        height: 125px;
+        right: -15px;
+    }
+
+    .seal-number {
+        font-size: 3.5rem;
+    }
+
+    .section-padding {
+        padding: 90px 6%;
+    }
+
+    .story-content {
+        padding: 55px 9%;
+    }
+}
+
+
+/* =========================================
+   12. MOBILE RESPONSIVENESS
+========================================= */
+
+@media (max-width: 700px) {
+
+    body {
+        font-size: 13px;
+    }
+
+    .navbar {
+        min-height: 72px;
+    }
+
+    .monogram {
+        font-size: 1.9rem;
+    }
+
+    .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        padding: 10px;
+    }
+
+    .menu-toggle span {
+        display: block;
+        width: 24px;
+        height: 1px;
+        background: var(--black);
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 71px;
+        left: 0;
+        right: 0;
+
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+
+        padding: 15px 6% 25px;
+        background: var(--ivory);
+        border-bottom: 1px solid var(--border);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links a {
+        padding: 14px 0;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .nav-rsvp {
+        border-bottom: 0;
+    }
+
+    .hero {
+        min-height: auto;
+        grid-template-columns: 1fr;
+        gap: 45px;
+        padding: 65px 7% 55px;
+    }
+
+    .hero-content {
+        max-width: 100%;
+    }
+
+    .hero h1 {
+        font-size: clamp(3.5rem, 15vw, 5.5rem);
+    }
+
+    .hero-description {
+        max-width: 350px;
+    }
+
+    .discover-link {
+        margin-top: 32px;
+    }
+
+    .hero-visual {
+        width: 90%;
+        max-width: 400px;
+    }
+
+    .hero-photo-frame {
+        height: 440px;
+    }
+
+    .anniversary-seal {
+        width: 120px;
+        height: 120px;
+        right: -18px;
+    }
+
+    .section-padding {
+        padding: 75px 7%;
+    }
+
+    .section-heading {
+        margin-bottom: 45px;
+    }
+
+    .section-heading h2 {
+        font-size: clamp(2.6rem, 10vw, 3.6rem);
+    }
+
+    .details-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .detail-card {
+        padding: 30px 15px;
+    }
+
+    .detail-card + .detail-card {
+        border-left: 0;
+        border-top: 1px solid var(--border);
+    }
+
+    .story {
+        grid-template-columns: 1fr;
+    }
+
+    .story-image {
+        height: 300px;
+    }
+
+    .story-content {
+        padding: 65px 8%;
+    }
+
+    .story-content h2 {
+        font-size: 3.4rem;
+    }
+
+    .colour-palette {
+        gap: 16px;
+    }
+
+    .colour-item {
+        width: 85px;
+    }
+
+    .colour-swatch {
+        width: 65px;
+        height: 90px;
+    }
+
+    .rsvp-form {
+        padding: 30px 22px;
+    }
+
+    .gifts {
+        padding-top: 75px;
+        padding-bottom: 75px;
+    }
+
+    .bank-details {
+        padding: 18px 28px;
+    }
+
+    .footer-names {
+        font-size: 2.1rem;
+    }
+}
+
+
+/* =========================================
+   13. REDUCED MOTION ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
