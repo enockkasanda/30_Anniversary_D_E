@@ -143,12 +143,14 @@ if (rsvpForm && formStatus) {
 
             rsvpForm.reset();
 
-        } catch (error) {
+        } 
+         catch (error) {
             console.error("RSVP submission error:", error);
 
-            formStatus.textContent =
-                "Sorry, we couldn't submit your RSVP. Please try again.";
-        } finally {
+             formStatus.textContent =
+            "RSVP error: " + error.message;
+}
+ finally {
             submitButton.disabled = false;
             submitButton.innerHTML =
                 'Submit my response <span>↗</span>';
