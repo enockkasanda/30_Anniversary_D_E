@@ -76,7 +76,7 @@ const rsvpForm = document.getElementById("rsvp-form");
 const formStatus = document.getElementById("form-status");
 
 const SUPABASE_URL = "https://yuayyxvkxvijoslqvyjx.supabase.co";
-const SUPABASE_PUBLISHABLE_KEY = "YOUR_PUBLISHABLE_KEY_HERE";
+const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_wRxEiMh4e82Ref2hrZO_1g_bRZLoTsy";
 
 if (rsvpForm && formStatus) {
     rsvpForm.addEventListener("submit", async (event) => {
@@ -123,8 +123,8 @@ if (rsvpForm && formStatus) {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
-                        "apikey": sb_publishable_wRxEiMh4e82Ref2hrZO_1g_bRZLoTsy,
-                        "Authorization": `Bearer ${sb_publishable_wRxEiMh4e82Ref2hrZO_1g_bRZLoTsy}`,
+                        "apikey": "sb_publishable_wRxEiMh4e82Ref2hrZO_1g_bRZLoTsy",
+                        "Authorization": `Bearer ${"sb_publishable_wRxEiMh4e82Ref2hrZO_1g_bRZLoTsy"}`,
                         "Prefer": "return=minimal"
                     },
                     body: JSON.stringify(response)
