@@ -124,7 +124,7 @@ if (rsvpForm && formStatus) {
                     headers: {
                         "Content-Type": "application/json",
                         "apikey": "sb_publishable_wRxEiMh4e82Ref2hrZO_1g_bRZLoTsy",
-                        "Authorization": `Bearer ${"sb_publishable_wRxEiMh4e82Ref2hrZO_1g_bRZLoTsy"}`,
+                        "Authorization": "Bearer sb_publishable_wRxEiMh4e82Ref2hrZO_1g_bRZLoTsy",
                         "Prefer": "return=minimal"
                     },
                     body: JSON.stringify(response)
