@@ -67,3 +67,92 @@ if (menuToggle && navLinks) {
     });
 
 }
+
+/* =========================================
+   RSVP FORM - SUPABASE CONNECTION
+========================================= */
+
+const rsvpForm = document.getElementById("rsvp-form");
+const formStatus = document.getElementById("form-status");
+
+const SUPABASE_URL = "https://yuayyxvkxvijoslqvyjx.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY = "YOUR_PUBLISHABLE_KEY_HERE";
+
+if (rsvpForm && formStatus) {
+    rsvpForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        const submitButton = rsvpForm.querySelector(
+            'button[type="submit"]'
+        );
+
+        if (submitButton.disabled) return;
+
+        const attendance = rsvpForm.querySelector(
+            'input[name="attendance"]:checked'
+        )?.value;
+
+        const guestCount = Number(
+            document.getElementById("guest-count").value
+        );
+
+        const response = {
+            guest_name: document.getElementById("guest-name").value.trim(),
+            attendance,
+            guest_count: guestCount,
+            message: document.getElementById("guest-message").value.trim() || null
+        };
+
+        if (
+            !response.guest_name ||
+            !["attending", "not_attending"].includes(response.attendance) ||
+            ![1, 2].includes(response.guest_count)
+        ) {
+            formStatus.textContent = "Please check your RSVP details.";
+            return;
+        }
+
+        submitButton.disabled = true;
+        submitButton.textContent = "Submitting...";
+        formStatus.textContent = "";
+
+        try {
+            const result = await fetch(
+                `${SUPABASE_URL}/rest/v1/rsvps`,
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "apikey": sb_publishable_wRxEiMh4e82Ref2hrZO_1g_bRZLoTsy,
+                        "Authorization": `Bearer ${sb_publishable_wRxEiMh4e82Ref2hrZO_1g_bRZLoTsy}`,
+                        "Prefer": "return=minimal"
+                    },
+                    body: JSON.stringify(response)
+                }
+            );
+
+            if (!result.ok) {
+                const error = await result.json();
+                throw new Error(
+                    error.message || "Unable to submit your RSVP."
+                );
+            }
+
+            formStatus.textContent =
+                "Thank you! Your RSVP has been submitted successfully.";
+
+            rsvpForm.reset();
+
+        } catch (error) {
+            console.error("RSVP submission error:", error);
+
+            formStatus.textContent =
+                "Sorry, we couldn't submit your RSVP. Please try again.";
+        } finally {
+            submitButton.disabled = false;
+            submitButton.innerHTML =
+                'Submit my response <span>↗</span>';
+        }
+    });
+}
+
