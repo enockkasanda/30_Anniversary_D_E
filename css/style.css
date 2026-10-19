@@ -1199,3 +1199,59 @@ h3 {
         transition: none;
     }
 }
+
+/* =========================================
+   MOBILE HERO ADJUSTMENTS
+========================================= */
+
+@media (max-width: 600px) {
+
+    .hero-visual {
+        width: 100%;
+        max-width: 340px;
+        margin-inline: auto;
+    }
+
+    .hero-photo-frame {
+        width: 100%;
+    }
+
+    .photo-caption {
+        font-size: 0.85rem;
+        line-height: 1.4;
+        padding-inline: 8px;
+        text-align: center;
+        overflow-wrap: normal;
+    }
+
+    .anniversary-seal {
+        width: 105px;
+        height: 105px;
+        padding: 8px;
+        box-sizing: border-box;
+    }
+
+    .seal-top {
+        font-size: 0.43rem;
+        line-height: 1.2;
+        letter-spacing: 0.04em;
+        text-align: center;
+        white-space: normal;
+    }
+
+    .seal-number {
+        font-size: 2rem;
+        line-height: 1;
+    }
+
+    .seal-years {
+        font-size: 0.55rem;
+        line-height: 1.2;
+    }
+
+    .seal-bottom {
+        font-size: 0.48rem;
+        line-height: 1.2;
+        white-space: nowrap;
+    }
+}
