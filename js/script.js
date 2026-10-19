@@ -157,4 +157,146 @@ if (rsvpForm && formStatus) {
         }
     });
 }
+/* =========================================
+   SCROLL REVEAL ANIMATIONS
+========================================= */
 
+const celebrationSection = document.querySelector(".celebration");
+
+if (celebrationSection) {
+
+    const revealElements = celebrationSection.querySelectorAll(
+        ".section-heading, .detail-card"
+    );
+
+    const revealObserver = new IntersectionObserver(
+        (entries, observer) => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("visible");
+
+                    observer.unobserve(entry.target);
+
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.15
+        }
+    );
+
+    revealElements.forEach(element => {
+        revealObserver.observe(element);
+    });
+}
+/* =========================================
+   ABOUT SECTION SCROLL REVEAL
+========================================= */
+
+const aboutSection = document.querySelector(".about");
+
+if (aboutSection) {
+    const revealElements = aboutSection.querySelectorAll(
+        ".section-label, h2, p, .about-date"
+    );
+
+    const aboutObserver = new IntersectionObserver(
+        (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                    observer.unobserve(entry.target);
+                }
+            });
+        },
+        {
+            threshold: 0.15
+        }
+    );
+
+    revealElements.forEach(element => {
+        element.classList.add("reveal");
+        aboutObserver.observe(element);
+    });
+}
+/* =========================================
+   HERO VISUAL APPEARANCE
+========================================= */
+
+const heroVisual = document.querySelector(".hero-visual");
+
+if (heroVisual) {
+    const heroVisualObserver = new IntersectionObserver(
+        (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    heroVisual.classList.add("visible");
+                    observer.unobserve(entry.target);
+                }
+            });
+        },
+        {
+            threshold: 0.2
+        }
+    );
+
+    heroVisualObserver.observe(heroVisual);
+}/* =========================================
+   ANNIVERSARY STORY REVEAL
+========================================= */
+
+const storySection = document.querySelector(".story");
+
+if (storySection) {
+    if ("IntersectionObserver" in window) {
+        const storyObserver = new IntersectionObserver(
+            (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("is-visible");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            {
+                threshold: 0.15
+            }
+        );
+
+        storyObserver.observe(storySection);
+    } else {
+        storySection.classList.add("is-visible");
+    }
+}
+/* =========================================
+   DRESS CODE SCROLL REVEAL
+========================================= */
+
+const attireSection = document.querySelector(".attire");
+
+if (attireSection) {
+    if ("IntersectionObserver" in window) {
+        const attireObserver = new IntersectionObserver(
+            (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("is-visible");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            {
+                threshold: 0.15
+            }
+        );
+
+        attireObserver.observe(attireSection);
+    } else {
+        attireSection.classList.add("is-visible");
+    }
+}

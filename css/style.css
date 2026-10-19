@@ -955,3 +955,247 @@ h3 {
         transition-duration: 0.01ms !important;
     }
 }
+
+/* =========================================
+   HERO CONTENT APPEARANCE
+========================================= */
+
+.hero-content > * {
+    opacity: 0;
+    transform: translateY(25px);
+    animation: heroAppear 0.9s ease forwards;
+}
+
+.hero-content .eyebrow {
+    animation-delay: 0.2s;
+}
+
+.hero-content h1 {
+    animation-delay: 0.4s;
+}
+
+.hero-content .hero-description {
+    animation-delay: 0.6s;
+}
+
+.hero-content .hero-date {
+    animation-delay: 0.8s;
+}
+
+.hero-content .button {
+    animation-delay: 1s;
+}
+
+.hero-content .discover-link {
+    animation-delay: 1.2s;
+}
+
+@keyframes heroAppear {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* =========================================
+   CELEBRATION SECTION APPEARANCE
+========================================= */
+
+.celebration .section-heading,
+.celebration .detail-card {
+    opacity: 0;
+    transform: translateY(35px);
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s ease;
+}
+
+.celebration .section-heading.visible,
+.celebration .detail-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.celebration .detail-card:first-child {
+    transition-delay: 0.15s;
+}
+
+.celebration .detail-card:last-child {
+    transition-delay: 0.3s;
+}
+
+/* =========================================
+   HERO VISUAL TRANSITIONS
+========================================= */
+
+.hero-visual .hero-photo-frame {
+    opacity: 0;
+    transform: translateY(25px) scale(0.97);
+    transition:
+        opacity 1.1s ease,
+        transform 1.1s ease;
+}
+
+.hero-visual .photo-caption {
+    opacity: 0;
+    transform: translateY(12px);
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+    transition-delay: 0.45s;
+}
+
+.hero-visual .anniversary-seal {
+    opacity: 0;
+    transform: scale(0.85) rotate(-8deg);
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+    transition-delay: 0.5s;
+}
+
+/* Visible state */
+
+.hero-visual.visible .hero-photo-frame {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.hero-visual.visible .photo-caption {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hero-visual.visible .anniversary-seal {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+}
+
+/* Respect reduced-motion preferences */
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-visual .hero-photo-frame,
+    .hero-visual .photo-caption,
+    .hero-visual .anniversary-seal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+/* =========================================
+   ANNIVERSARY STORY SCROLL REVEAL
+========================================= */
+
+.story .story-image,
+.story .story-content > * {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+.story .story-image {
+    transform: translateX(-30px);
+}
+
+.story .story-content > * {
+    transition-delay: var(--reveal-delay, 0s);
+}
+
+/* Reveal the image and text */
+
+.story.is-visible .story-image,
+.story.is-visible .story-content > * {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+/* Stagger the text appearance */
+
+.story .story-content > *:nth-child(1) {
+    --reveal-delay: 0.1s;
+}
+
+.story .story-content > *:nth-child(2) {
+    --reveal-delay: 0.25s;
+}
+
+.story .story-content > *:nth-child(3) {
+    --reveal-delay: 0.4s;
+}
+
+.story .story-content > *:nth-child(4) {
+    --reveal-delay: 0.55s;
+}
+
+.story .story-content > *:nth-child(5) {
+    --reveal-delay: 0.7s;
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+    .story .story-image,
+    .story .story-content > * {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+/* =========================================
+   DRESS CODE SCROLL REVEAL
+========================================= */
+
+.attire .section-heading,
+.attire .colour-item,
+.attire .attire-note {
+    opacity: 0;
+    transform: translateY(25px);
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+/* Visible state */
+
+.attire.is-visible .section-heading,
+.attire.is-visible .colour-item,
+.attire.is-visible .attire-note {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger the colour palette */
+
+.attire.is-visible .colour-item:nth-child(1) {
+    transition-delay: 0.15s;
+}
+
+.attire.is-visible .colour-item:nth-child(2) {
+    transition-delay: 0.3s;
+}
+
+.attire.is-visible .colour-item:nth-child(3) {
+    transition-delay: 0.45s;
+}
+
+.attire.is-visible .attire-note {
+    transition-delay: 0.6s;
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+    .attire .section-heading,
+    .attire .colour-item,
+    .attire .attire-note {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
